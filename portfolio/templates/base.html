@@ -29,6 +29,21 @@
                 <li><a class="smooth-menu" href="#services">Skills</a></li>
                 <li><a class="smooth-menu" href="#portfolio">Portfolio</a></li>
                 <li><a class="smooth-menu" href="#contact">Contact</a></li>
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                     <li><a class="nav-link" href="{% url 'logout' %}"> Logout</a></li>
+                    {% else %}
+                <li><a class="nav-link" href="{% url 'login' %}"> Login</a></li><br>
+                <li><a class="nav-link" href="{% url 'register' %}"> Register</a></li>
+                    {% endif %}
+                    {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                </div>
             </ul>
         </div>
     </div>

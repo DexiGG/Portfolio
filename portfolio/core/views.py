@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import *
+from django.contrib.auth.views import LoginView
 
 
 class HomeTemplateView(TemplateView):
